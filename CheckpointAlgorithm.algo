@@ -1,0 +1,35 @@
+ALGORITHM checkpoint
+VAR
+    sentence:STRING;
+    longSentence,nbWord,nbVowel:integer:=0;
+    i:integer;
+BEGIN
+//1 ere partie Longuer d'une chaine
+ REPEAT
+     longSentence :=longSentence+1 ;
+ UNTIL (sentence[longSentence]=".")
+  write("Longuer de la chaine= ",longSentence);
+
+  //2 eme partie Nombre de mots
+  FOR i FROM 0 TO longSentence-1  DO
+      if (sentence[i]=" "){
+         nbWord:=nbWord+1;
+      }
+  END_FOR
+    write("Le nombre des mots dans la chaine= ",nbWord);
+
+    //3 eme partie Nombre de voyelles
+    FOR i FROM 0 TO longSentence-1  DO
+        SWITCH (sentence[i]) DO
+            case "a" : nbVowel:=nbVowel+1;
+            case "e" : nbVowel:=nbVowel+1;
+            case "i" : nbVowel:=nbVowel+1;
+            case "o" : nbVowel:=nbVowel+1;
+            case "u" : nbVowel:=nbVowel+1;
+            case "y" : nbVowel:=nbVowel+1;
+            default : write("pas de voyelle");
+        END_SWITCH
+    END_FOR
+    write("Le nombre de voyelles dans la chaine= ",nbVowel);
+
+END
